@@ -6,5 +6,5 @@ from .models import Menuitem
 class MenuitemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menuitem
-        fields = ('id', 'name', 'price')
+        fields = ('id', 'name', 'price', 'type')
         # fields = '__all__'

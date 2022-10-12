@@ -4,26 +4,7 @@ import { useState, useEffect } from "react";
 import logo from "./../../images/clipart11730.png";
 
 function App() {
-  const [menuitems, setMenuitems] = useState(null);
   const [order, setOrder] = useState([]);
-
-  useEffect(() => {
-    const getMenuitems = async () => {
-      const response = await fetch("/api_v1/menuitems/");
-      if (!response.ok) {
-        throw new Error("Network response was not OK");
-      } else {
-        const data = await response.json();
-        setMenuitems(data);
-      }
-    };
-
-    getMenuitems();
-  }, []);
-
-  if (!menuitems) {
-    return <div>Fetching data...</div>;
-  }
 
   return (
     <div className="App">

@@ -2,6 +2,7 @@ import MenuItem from "./MenuItem";
 import Order from "../Order/Order";
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
+import menuitems from "../App/App";
 
 const MENU_ITEMS = [
   { name: "Cheese Pizza", price: 10, type: "pizza", id: 1 },
@@ -21,10 +22,28 @@ const MENU_ITEMS = [
   { name: "House Salad", price: 5, type: "side", id: 15 },
 ];
 
-function MenuList() {
-  const [menuItems, setMenuItems] = useState(MENU_ITEMS);
+function MenuList({ menuitems }) {
+  const [menuItems, setMenuItems] = useState(null);
   const [filter, setFilter] = useState("pizza");
   const [order, setOrder] = useState([]);
+
+  useEffect(() => {
+    const getMenuitems = async () => {
+      const response = await fetch("/api_v1/menuitems/");
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      } else {
+        const data = await response.json();
+        setMenuItems(data);
+      }
+    };
+
+    getMenuitems();
+  }, []);
+
+  if (!menuItems) {
+    return <div>Fetching data...</div>;
+  }
 
   const submitOrder = ({ name, telephone }) => {
     const newOrder = {
@@ -64,7 +83,12 @@ function MenuList() {
   const menu = menuItems
     .filter((menuItem) => menuItem.type === filter)
     .map((menuItem) => (
-      <MenuItem key={menuItem.id} {...menuItem} addToOrder={addToOrder} />
+      <MenuItem
+        key={menuItem.id}
+        {...menuItem}
+        addToOrder={addToOrder}
+        menuitems={menuitems}
+      />
     ));
 
   return (
