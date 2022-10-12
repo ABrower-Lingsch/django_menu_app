@@ -10,3 +10,12 @@ class Menuitem(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Order(models.Model):
+    name = models.TextField()
+    phone = models.TextField()
+    order = models.JSONField()
+
+    def __str__(self):
+        return self.name

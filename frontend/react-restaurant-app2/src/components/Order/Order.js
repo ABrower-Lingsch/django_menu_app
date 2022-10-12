@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function Order({ order, removeFromOrder, submitOrder }) {
-  const [name, setName] = useState("Adam");
-  const [telephone, setTelephone] = useState("555-555-5555");
+  const [name, setName] = useState("");
+  const [telephone, setTelephone] = useState("");
 
   const orderList = order.map(({ name, price, qty }) => (
     <li key={name}>
@@ -23,8 +23,16 @@ function Order({ order, removeFromOrder, submitOrder }) {
     <>
       <ul>{orderList}</ul>
       <p>${subTotal.toFixed(2)}</p>
-      <input type="text" placeholder="Enter last name" />
-      <input type="tel" placeholder="Enter telephone number" />
+      <input
+        type="text"
+        placeholder="Enter last name"
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="tel"
+        placeholder="Enter telephone number"
+        onChange={(e) => setTelephone(e.target.value)}
+      />
       <button type="button" onClick={() => submitOrder({ name, telephone })}>
         Submit order
       </button>

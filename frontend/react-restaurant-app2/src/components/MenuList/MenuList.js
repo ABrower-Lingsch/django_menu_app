@@ -45,18 +45,32 @@ function MenuList({ menuitems }) {
     return <div>Fetching data...</div>;
   }
 
-  const submitOrder = ({ name, telephone }) => {
+  const handleError = (err) => {
+    console.warn(err);
+  };
+
+  const submitOrder = async ({ name, telephone }) => {
     const newOrder = {
       name,
-      telephone,
-      items: order,
+      phone: telephone,
+      order,
     };
 
-    const submittedOrders =
-      JSON.parse(localStorage.getItem("submittedOrders")) || [];
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newOrder),
+    };
 
-    submittedOrders.push(newOrder);
-    localStorage.setItem("submittedOrders", JSON.stringify(submittedOrders));
+    const response = await fetch("/api_v1/orders/", options).catch(handleError);
+    if (!response.ok) {
+      throw new Error("Network response was not OK");
+    } else {
+      const data = await response.json();
+    }
+
     setOrder([]);
   };
 
