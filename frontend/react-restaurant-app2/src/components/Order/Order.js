@@ -9,7 +9,7 @@ function Order({ order, removeFromOrder, submitOrder }) {
       <div>{name}</div>
       <div>{qty}</div>
       <div>${(price * qty).toFixed(2)}</div>
-      <button type="button" onClick={() => removeFromOrder(name)}>
+      <button className="removeFromOrder" type="button" onClick={() => removeFromOrder(name)}>
         Remove from order
       </button>
     </li>
@@ -20,23 +20,25 @@ function Order({ order, removeFromOrder, submitOrder }) {
     .reduce((acc, i) => acc + i, 0);
 
   return (
-    <>
-      <ul>{orderList}</ul>
-      <p>${subTotal.toFixed(2)}</p>
-      <input
-        type="text"
-        placeholder="Enter last name"
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="tel"
-        placeholder="Enter telephone number"
-        onChange={(e) => setTelephone(e.target.value)}
-      />
-      <button type="button" onClick={() => submitOrder({ name, telephone })}>
+    <div className="orderArea">
+      <div className="yourOrderArea">
+        <ul>{orderList}</ul>
+        <p className="subtotal">${subTotal.toFixed(2)}</p>
+        <input
+          type="text"
+          placeholder="Enter last name"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="tel"
+          placeholder="Enter telephone number"
+          onChange={(e) => setTelephone(e.target.value)}
+        />
+      </div>
+      <button className="submitOrderButton" type="button" onClick={() => submitOrder({ name, telephone })}>
         Submit order
       </button>
-    </>
+    </div>
   );
 }
 

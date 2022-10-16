@@ -106,23 +106,29 @@ function MenuList({ menuitems }) {
     ));
 
   return (
-    <>
-      <button type="button" onClick={() => setFilter("pizza")}>
-        Pizzas
-      </button>
-      <button type="button" onClick={() => setFilter("calzone")}>
-        Calzones
-      </button>
-      <button type="button" onClick={() => setFilter("side")}>
-        Sides
-      </button>
-      <ul>{menu}</ul>
-      <Order
-        order={order}
-        removeFromOrder={removeFromOrder}
-        submitOrder={submitOrder}
-      />
-    </>
+    <div className="mainMenu">
+      <section className="fullMenu">
+        <div className="categories">
+          <button className="foodTypes" type="button" onClick={() => setFilter("pizza")}>
+            Pizzas
+          </button>
+          <button className="foodTypes" type="button" onClick={() => setFilter("calzone")}>
+            Calzones
+          </button>
+          <button className="foodTypes" type="button" onClick={() => setFilter("side")}>
+            Sides
+          </button>
+        </div>
+        <ul className="menu">{menu}</ul>
+      </section>
+      <section className="yourOrder">
+        <Order
+          order={order}
+          removeFromOrder={removeFromOrder}
+          submitOrder={submitOrder}
+        />
+      </section>
+    </div>
   );
 }
 

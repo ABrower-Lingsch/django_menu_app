@@ -9,8 +9,7 @@ function App() {
   return (
     <div className="App">
       <div className="restaurantLogo">
-        <h1>Vic's Pizza</h1>
-        <img src={logo} />
+        <h1>Lorenzo's</h1>
       </div>
       <MenuList />
     </div>

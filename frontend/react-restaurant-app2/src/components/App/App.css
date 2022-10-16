@@ -1,3 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
 img {
     width: 400px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url("../../components/brick.jpg");
+    background-size: 100vw;
+    background-position-y: 55px;
+}
+
+.restaurantLogo {
+    background-image: url("../../components/pizza.jpg");
+    background-size: 100%;
+    background-repeat:no-repeat;
+    width: 100vw;
+    color: #fff;
+    height: 20rem;
+    position: relative;
+}
+
+
+h1 {
+    font-family: 'Petit Formal Script', cursive;
+    color: #fff;
+    font-size: 5vmax;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.foodTypes {
+    background-color: #000;
+    color: #fff;
+}
+
+.mainMenu {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 3rem;
+}
+
+.fullMenu {
+    color: rgb(255, 255, 255);
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 2vmax;
+    font-weight:bold;
+    text-shadow:0 0 2px rgb(0, 0, 0);
+    width: 40%;
+}
+
+.menu {
+    list-style: none;
+    line-height: 3rem;
+    
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuItem {
+    display: flex;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+}
+
+.foodTypes {
+    height: 3rem;
+    width: 33%;
+    font-size: 2vmax;
+    font-family: 'Petit Formal Script', cursive;
+    border-radius: 5px;
+    border: solid 1px rgb(107, 107, 107);
+}
+
+.addToOrder {
+    font-family: 'Petit Formal Script', cursive;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    border: solid 1px rgb(107, 107, 107);
+}
+
+.itemName {
+    margin-right: 15px;
+}
+
+.yourOrderArea {
+    color: #fff;
+    font-family: 'Petit Formal Script', cursive;
+    text-shadow:0 0 2px rgb(0, 0, 0);
+    font-size: 2vmax;
+    font-weight: 700;
+}
+
+.yourOrder {
+    width: 30%;
+}
+
+input {
+    width:50%;
+}
+
+.submitOrderButton {
+    font-family: 'Petit Formal Script', cursive;
+    border-radius: 5px;
+    border: solid 1px rgb(107, 107, 107);
+    background-color: #000;
+    color: #fff;
+}
+
+.removeFromOrder {
+    width: 10rem;
+    font-family: 'Petit Formal Script', cursive;
+    border-radius: 5px;
+    border: solid 1px rgb(107, 107, 107);
+    background-color: #000;
+    color: #fff;
+}
+
+.subtotal {
+    margin-bottom: 0;
 }
